@@ -2,7 +2,6 @@
 var fs = require('fs');
 var assert = require('assert');
 var gutil = require('gulp-util');
-var pngquant = require('imagemin').pngquant;
 var imagemin = require('./');
 var testSize;
 
@@ -29,26 +28,6 @@ it('should minify images', function (cb) {
 	stream.end();
 });
 
-it('should have configure option', function (cb) {
-	this.timeout(40000);
-
-	var stream = imagemin({
-		use: [pngquant()]
-	});
-
-	stream.once('data', function (file) {
-		assert(file.contents.length < testSize);
-	});
-
-	stream.on('end', cb);
-
-	stream.write(new gutil.File({
-		path: __dirname + '/fixture.png',
-		contents: fs.readFileSync('fixture.png')
-	}));
-
-	stream.end();
-});
 
 it('should skip unsupported images', function (cb) {
 	var stream = imagemin();

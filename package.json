@@ -37,7 +37,7 @@
   "dependencies": {
     "chalk": "^1.0.0",
     "gulp-util": "^3.0.0",
-    "imagemin": "^3.0.0",
+    "imagemin": "imagemin/imagemin#fc97bcd7a07d1e68df41c622b78307810c8296b1",
     "object-assign": "^2.0.0",
     "pretty-bytes": "^1.0.1",
     "through2-concurrent": "^0.3.0"
